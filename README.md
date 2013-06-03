@@ -9,7 +9,8 @@ Added methods in :
 -ac.soton.fmusim.components.diagram.edit.parts.FMUComponentVariablesCompartmentEditPart
     ->the method adding the tool on the palette is to be moved to "performFinished" of the Import function
   
-    ->the "actionPerformed" method opens the wizard to enable modifications. Those modifications do not apply on finish yet.
+    ->the "actionPerformed" method opens the wizard to enable modifications. 
+                (Those modifications do not apply on finish yet.)
     
     
 -ac.soton.fmusim.components.diagram.part.ComponentsPaletteFactory
