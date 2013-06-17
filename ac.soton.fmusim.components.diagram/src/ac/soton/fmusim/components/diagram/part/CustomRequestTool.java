@@ -3,6 +3,7 @@ package ac.soton.fmusim.components.diagram.part;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.Request;
@@ -37,7 +38,7 @@ public class CustomRequestTool extends CreationTool{
 
 	public CustomRequestTool(FMUComponent comp) {
 		super();
-		this.component = comp;
+		this.component = EcoreUtil.copy(comp);
 
 		IWorkbench workbench = PlatformUI.getWorkbench();
 		IWorkbenchPage page = workbench.getActiveWorkbenchWindow().getActivePage();
@@ -45,7 +46,8 @@ public class CustomRequestTool extends CreationTool{
 		DiagramEditor diagramE = (DiagramEditor) page.getActiveEditor();
 		final Diagram diag = diagramE.getDiagram();
 		DiagramEditPart diagramEditPart = diagramE.getDiagramEditPart();
-		CreateViewRequest documentReq = CreateViewRequestFactory.getCreateShapeRequest(ComponentsElementTypes.FMUComponent_2001, diagramEditPart.getDiagramPreferencesHint());
+		CreateViewRequest documentReq = CreateViewRequestFactory.getCreateShapeRequest(ComponentsElementTypes.FMUComponent_2001, 
+																						diagramEditPart.getDiagramPreferencesHint());
 
 		Command createDocument = diagramEditPart.getCommand(documentReq);
 
